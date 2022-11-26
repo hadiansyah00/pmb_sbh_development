@@ -29,7 +29,12 @@
 					<th>Nama</th>
 					<th>Tempat Lahir</th>
 					<th>Tanggal Lahir</th>
-					<th>Nama Lengkap</th>
+					<th>Alamat</th>
+					<th>Nama Ibu</th>
+					<!-- <th>Alamat Ibu</th> -->
+					<th>Jurusan</th>
+					<th>Jurusan Asal Sekolah</th>
+
 					<?php if (is_admin()) : ?><th>Hapus</th><?php endif; ?>
 				</tr>
 			</thead>
@@ -49,7 +54,10 @@
 							<td><?= $bm['nama']; ?></td>
 							<td><?= $bm['tempat_lahir']; ?></td>
 							<td><?= $bm['tanggal_lahir']; ?></td>
-							<td><?= $bm['nama_lengkap']; ?></td>
+							<td><?= $bm['agama']; ?></td>
+							<td><?= $bm['nama_provinsi']; ?>,<?= $bm['nama_kabupaten']; ?>, <?= $bm['nama_kecamatan']; ?>, <?= $bm['alamat']; ?></td>
+							<td><?= $bm['nama_prodi']; ?></td>
+							<td><?= $bm['jurs_asal']; ?></td>
 							<?php if (is_admin()) : ?><td>
 									<a onclick="return confirm('Yakin ingin hapus?')" href="<?= base_url('daftar/delete/') . $bm['id_daftar'] ?>" class="btn btn-danger btn-circle btn-sm"><i class="fa fa-trash"></i></a>
 								</td><?php endif; ?>

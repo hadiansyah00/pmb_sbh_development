@@ -74,9 +74,17 @@
 			</li>
 			<li class="nav-item">
 				<a class="nav-link pb-2" href="<?= base_url('daftar') ?>">
-					<i class="fas fa-fw fa-file"></i>
+					<i class="fas fa-fw fa-plus-circle"></i>
 					<span>
 						<b>Form Pendaftaran</b>
+					</span>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link pb-2" href="<?= base_url('status') ?>">
+					<i class="fas fa-fw fa-money-check"></i>
+					<span>
+						<b>Status Pendaftaran</b>
 					</span>
 				</a>
 			</li>
@@ -98,10 +106,8 @@
 						<a class="collapse-item" href="<?= base_url('tahunakademik'); ?>">Tahun Akademik</a>
 						<a class="collapse-item" href="<?= base_url('agama'); ?>">Agama</a>
 						<a class="collapse-item" href="<?= base_url('penghasilan'); ?>">Penghasilan</a>
-						<a class="collapse-item" href="<?= base_url('prodi'); ?>">Prodi</a>
-						<a class="collapse-item" href="<?= base_url('prodi'); ?>">Lampiran</a>
-						<a class="collapse-item" href="<?= base_url('prodi'); ?>">Jurusan SMA/SMK</a>
-
+						<a class="collapse-item" href="<?= base_url('prodi'); ?>">Program Study</a>
+						<a class="collapse-item" href="<?= base_url('jurs_asal'); ?>">Jurusan Asal</a>
 					</div>
 				</div>
 			</li>
@@ -120,16 +126,16 @@
 				</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link pb-2" href="<?= base_url('daftar') ?>">
-					<i class="fas fa-fw fa-file"></i>
+				<a class="nav-link pb-2" href="<?= base_url('') ?>">
+					<i class="fas fa-fw fa-check-circle"></i>
 					<span>
 						<b>Siswa Diterima</b>
 					</span>
 				</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link pb-2" href="<?= base_url('daftar') ?>">
-					<i class="fas fa-fw fa-file"></i>
+				<a class="nav-link pb-2" href="<?= base_url('') ?>">
+					<i class="fas fa-fw fa-exclamation-triangle"></i>
 					<span>
 						<b>Siswa Ditolak</b>
 					</span>

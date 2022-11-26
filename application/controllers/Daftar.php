@@ -22,9 +22,29 @@ class Daftar extends CI_Controller
 	{
 		$this->form_validation->set_rules('nik', 'nik', 'required|trim');
 		$this->form_validation->set_rules('nisn', 'nisn ', 'required');
+		$this->form_validation->set_rules('jk', 'Jenis Kelamin ', 'required');
 		$this->form_validation->set_rules('tempat_lahir', 'Tempat Lahir', 'required');
 		$this->form_validation->set_rules('tanggal_lahir', 'tanggal Lahir', 'required');
 		$this->form_validation->set_rules('agama_id', 'agama ', 'required');
+
+
+		$this->form_validation->set_rules('nama_ibu', 'Nama Ibu', 'required');
+		$this->form_validation->set_rules('no_telp_ibu', 'No Telp Ibu', 'required');
+		$this->form_validation->set_rules('penghasilan_id', 'Penghasilan ', 'required');
+		$this->form_validation->set_rules('tempat_lahir_ibu', 'Tempat Lahir Ibu', 'required');
+		$this->form_validation->set_rules('alamat_ibu', 'Alamat Ibu / Wali', 'required');
+
+		$this->form_validation->set_rules('kelas', 'Kelas', 'required');
+		$this->form_validation->set_rules('sts_pendaftaran', 'Status ', 'required');
+		$this->form_validation->set_rules('asal_sekolah', 'Asal Sekolah ', 'required');
+		$this->form_validation->set_rules('jenis_sekolah', 'Jenis Sekolah ', 'required');
+		$this->form_validation->set_rules('jurs_id_asal', 'Jurusan Asal Sekolah ', 'required');
+		$this->form_validation->set_rules('jurusan_id', 'Program Study ', 'required');
+
+		$this->form_validation->set_rules('alamat', 'Alamat', 'required');
+		$this->form_validation->set_rules('provinsi_id', 'Provinsi ', 'required');
+		$this->form_validation->set_rules('kecamatan_id', 'Kecamatan ', 'required');
+		$this->form_validation->set_rules('kabupaten_id', 'Kabupaten ', 'required');
 	}
 	public function add()
 	{
@@ -43,19 +63,13 @@ class Daftar extends CI_Controller
 			$data['provinsi'] = $this->admin->get('provinsi');
 			$data['kabupaten'] = $this->admin->get('kabupaten');
 			$data['kecamatan'] = $this->admin->get('kecamatan');
+			$data['jurs_asal'] = $this->admin->get('jurs_asal');
 			$data['penghasilan'] = $this->admin->get('tbl_penghasilan');
 			$this->template->load('templates/dashboard', 'pendaftaran/add', $data);
 		} else {
 
 			$input = $this->input->post(null, true);
-			// $data = array(
-			// 	'id_ta'			=> $a,
-			// 	'nik'			=> htmlspecialchars($this->input->post('nik')),
-			// 	'nisn'			=> htmlspecialchars($this->input->post('nisn')),
-			// 	'jk'			=> htmlspecialchars($this->input->post('jk')),
-			// 	'tempat_lahir'	=> htmlspecialchars($this->input->post('tempat_lahir')),
-			// 	'id_agama'		=> htmlspecialchars($this->input->post('agama_id'))
-			// );
+			// $a = $this->input->post('status_siswa', 1);
 			$insert = $this->admin->insert('pendaftaran', $input);
 
 			if ($insert) {

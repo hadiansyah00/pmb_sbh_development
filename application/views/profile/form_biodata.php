@@ -43,7 +43,7 @@
 									</div>
 									<input value="<?= set_value('username', $user['username']); ?>" name="username" id="username" type="text" class="form-control" placeholder="Username...">
 									<input value="<?= set_value('no_pendaftaran', $daftar['no_pendaftaran']); ?>" name="no_pendaftaran" id="no_pendaftaran" type="text" class="form-control">
-					
+
 								</div>
 								<?= form_error('username', '<small class="text-danger">', '</small>'); ?>
 							</div>
@@ -89,143 +89,7 @@
 					</div>
 				</div>
 				<hr>
-				<div class="row">
-					<div class="col-md-6">
-						<div class="form-group">
-							<label for="inputAddress" class="myform required">NIK<strong style="color:#e91212 ;">*</strong></label>
-							<input type="text" class="form-control" id="inputCity" placeholder="Nomor Induk Kependudukan">
-						</div>
-						
 
-						<div class="form-group">
-							<label for="inputAddress" class="myform required">Jenis Kelamin <strong style="color:#e91212 ;">*</strong></label>
-							<select class="form-control" id="">
-								<option>Laki-Laki</option>
-								<option>Perempuan</option>
-							</select>
-						</div>
-
-						<div class="form-row">
-							<div class="form-group col-md-6">
-								<label for="inputCity">Tempat<strong style="color:#e91212 ;">*</strong></label>
-								<input type="text" class="form-control" id="inputCity" placeholder="Tempat lahir">
-							</div>
-							<div class="form-group col-md-6">
-								<label for="inputState">Tanggal Lahir<strong style="color:#e91212 ;">*</strong></label>
-								<input type="date" class="form-control" name="" id="">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="inputAddress" class="myform required">Agama <strong style="color:#e91212 ;">*</strong></label>
-							<select class="form-control" id="">
-								<option>Islam</option>
-								<option>Katolik</option>
-								<option>Kristen</option>
-								<option>Konghucu</option>
-								<option>Budha</option>
-								<option>Hindu</option>
-								<option>Lainnya</option>
-							</select>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="form-group">
-							<label for="inputAddress" class="myform required">Nama Ibu<strong style="color:#e91212 ;">*</strong></label>
-							<input type="text" class="form-control" id="inputCity" placeholder="Nama Ibu">
-						</div>
-						<div class="form-group">
-							<label for="inputAddress" class="myform required">No Telp. Ibu<strong style="color:#e91212 ;">*</strong></label>
-							<input type="text" class="form-control" id="inputCity" placeholder="Telp Ibu..">
-						</div>
-						<div class="form-row">
-							<div class="form-group col-md-6">
-								<label for="inputCity">Tempat Lahir Ibu<strong style="color:#e91212 ;">*</strong></label>
-								<input type="text" class="form-control" id="inputCity" placeholder="Tempat lahir Ibu">
-							</div>
-							<div class="form-group col-md-6">
-								<label for="inputState">Tanggal Lahir Ibu<strong style="color:#e91212 ;">*</strong></label>
-								<input type="date" class="form-control" name="" id="">
-							</div>
-						</div>
-			
-						<div class="form-group">
-							<label for="inputAddress" class="myform required">Pendapatan Orang Tua <strong style="color:#e91212 ;">*</strong></label>
-							<select class="form-control" name="" id="">
-								<option> 3.000.000 - 5.000.000</option>
-								<option> 5.000.000 - 8.000.000</option>
-								<option> 8.000.000 - 10.000.000</option>
-							</select>
-						</div>
-
-				
-
-					</div>
-				</div>
-				<hr>
-				<div class="row">
-					<div class="container text-lg-center">
-						<h4 class="h5 align-middle m-0 font-weight-bold text-primary">Alamat Tempat Tinggal</h4>
-					</div>
-					<div class="col-md-12">
-
-						<div class="form-group">
-							<label for="inputAddress" class="myform required">Kota <strong style="color:#e91212 ;">*</strong></label>
-							<select class="form-control" id="">
-								<option>Kota</option>
-
-							</select>
-						</div>
-						
-						<div class="form-group">
-							<label for="inputAddress" class="myform required">Kabupaten <strong style="color:#e91212 ;">*</strong></label>
-							<select class="form-control" id="">
-								<option>Kabupaten</option>
-
-							</select>
-						</div>
-						<div class="form-group">
-							<label for="inputAddress" class="myform required">Kecamatan <strong style="color:#e91212 ;">*</strong></label>
-							<select class="form-control" id="">
-								<option>Kecamatan</option>
-
-							</select>
-						</div>
-						<div class="form-group">
-							<label for="inputCity">Alamat<strong style="color:#e91212 ;">*</strong></label>
-							<input type="text" class="form-control" id="inputCity" placeholder="Alamat">
-						</div>
-					</div>
-				</div>
-
-				<hr>
-				<div class="row">
-					<div class="container text-lg-center">
-						<h4 class="h5 align-middle m-0 font-weight-bold text-primary">Akademik</h4>
-					</div>
-					<div class="col-md-12">
-
-						<div class="form-group">
-							<label for="inputAddress" class="myform required">Jenis Kelas <strong style="color:#e91212 ;">*</strong></label>
-							<select class="form-control" id="">
-								<option>Pagi</option>
-								<option>Sore</option>
-							</select>
-						</div>
-						<div class="form-group">
-							<label for="inputAddress" class="myform required">Jurusan SMA <strong style="color:#e91212 ;">*</strong></label>
-							<select class="form-control" id="">
-								<option>IPA</option>
-								<option>Teknik</option>
-								<option>Non Teknik</option>
-							</select>
-						</div>
-						<div class="form-group">
-							<label for="inputAddress" class="myform required">Asal Sekolah <strong style="color:#e91212 ;">*</strong></label>					
-							<input type="text" class="form-control" id="inputCity" placeholder="Asal Sekolah">
-						</div>					
-				</div>
-				</div>
-				<hr>
 				<div class="row form-group">
 					<div class="col-md-9 offset-md-5 ">
 						<button type="submit" class="btn btn-primary"> Simpan Data </button>

@@ -101,6 +101,13 @@ class Admin_model extends CI_Model
 		$this->db->select('*');
 
 		$this->db->join('user u', 'p.user_id = u.id_user');
+		$this->db->join('agama a', 'p.agama_id = a.id_agama');
+		$this->db->join('provinsi i', 'p.provinsi_id = i.id_provinsi');
+		$this->db->join('kecamatan n', 'p.kecamatan_id = n.id_kecamatan');
+		$this->db->join('kabupaten k', 'p.kabupaten_id = k.id_kabupaten');
+		$this->db->join('prodi o', 'p.jurusan_id = o.id_jurusan');
+		$this->db->join('tbl_penghasilan e', 'p.penghasilan_id = e.id_penghasilan');
+		$this->db->join('jurs_asal ju', 'p.jurs_id_asal = ju.id_jurs_asal_sek');
 
 		if ($limit != null) {
 			$this->db->limit($limit);
