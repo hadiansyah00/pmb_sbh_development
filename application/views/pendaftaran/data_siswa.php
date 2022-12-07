@@ -4,21 +4,14 @@
 		<div class="row">
 			<div class="col">
 				<h4 class="h5 align-middle m-0 font-weight-bold text-primary">
-					Form Pendaftaran Mahasiswa
+					Data Siswa PMB
+
 				</h4>
 			</div>
-			<div class="col-auto">
-				<a href="<?= base_url('daftar/add') ?>" class="btn btn-sm btn-primary btn-icon-split">
-					<span class="icon">
-						<i class="fa fa-plus"></i>
-					</span>
-					<span class="text">
-						Input Item
-					</span>
-				</a>
-			</div>
+
 		</div>
 	</div>
+
 	<div class="table-responsive">
 		<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 			<thead>
@@ -30,13 +23,13 @@
 					<th>Tempat Lahir</th>
 					<th>Tanggal Lahir</th>
 					<th>Jurusan</th>
-					<th>Status</th>
+					<th>Aktivasi</th>
+					<th>Aksi</th>
 				</tr>
 			</thead>
 			<tbody>
 				<?php
 				$no = 1;
-				$total = 0;
 				if ($siswa) :
 					foreach ($siswa as $bm) :
 				?>
@@ -49,23 +42,22 @@
 							<td><?= $bm['nama']; ?></td>
 							<td><?= $bm['tempat_lahir']; ?></td>
 							<td><?= $bm['tanggal_lahir']; ?></td>
-
 							<td><?= $bm['nama_prodi']; ?></td>
 							<td>
-								<?php if ($bm['sts_pendaftaran'] == 0) {
-									echo "<span class='btn btn-danger'>
-                                                            <i class='ace-icon fa fa-exclamation-triangle bigger-120'></i>
-                                                            Pending
-                                                     </span>";
-								} else {
-									echo "<span class='btn btn-success'>
-                                                        <i class='ace-icon fa fa-check bigger-120'></i>
-                                                                            Diterima
-                                                     </span>";
-								} ?>
+								<?php if ($bm['sts_verfikasi'] == 0) { ?>
+									<a href="<?= base_url('Siswa/AktivasiSiswa/') . $bm['id_daftar'] ?>" class="btn btn-success btn btn-sm"><i class="fa fa-check-circle"></i></a>
+								<?php } ?>
+								<?php if ($bm['sts_verfikasi'] == 0) { ?>
+									<a onclick="return confirm('Yakin ingin Menolak siswa?')" href="<?= base_url('Siswa/TolakSiswa/') . $bm['id_daftar'] ?>" class="btn btn-danger btn btn-sm"><i class="fa fa-times-circle"></i></a>
+								<?php } ?>
 							</td>
+							<td>
+								<a href="<?= base_url('siswa/views/') . $bm['id_daftar'] ?>" class="btn btn-primary btn-circle btn-sm" title="View Data"><i class="fa fa-chevron-circle-right"></i></a>
+								<a onclick="return confirm('Yakin ingin hapus?')" href="<?= base_url('daftar/delete/') . $bm['id_daftar'] ?>" class="btn btn-danger btn-circle btn-sm"><i class="fa fa-trash"></i></a>
+							</td>
+
 						</tr>
-						<?php ?>
+
 					<?php endforeach; ?>
 				<?php else : ?>
 					<tr>

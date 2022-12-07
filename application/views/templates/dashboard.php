@@ -7,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="icon" href="../assets/img/icon.ico" type="image/x-icon" />
-	<link rel="icon" type="image/png" href="assets/img/logo1.png" />
+	<link rel="icon" type="image/png" href="assets/img/logo_sbh.png" />
 	<title><?= $title; ?> | App PMB STIKes Bogor Husada</title>
 
 	<!-- Custom fonts for this template-->
@@ -118,7 +118,7 @@
 
 			<!-- Nav Item -->
 			<li class="nav-item">
-				<a class="nav-link pb-0" href="<?= base_url('profile') ?>">
+				<a class="nav-link pb-0" href="<?= base_url('siswa') ?>">
 					<i class="fas fa-fw fa-users"></i>
 					<span>
 						<b>Data PMB</b>
@@ -126,7 +126,7 @@
 				</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link pb-2" href="<?= base_url('') ?>">
+				<a class="nav-link pb-2" href="<?= base_url('SiswaAprove') ?>">
 					<i class="fas fa-fw fa-check-circle"></i>
 					<span>
 						<b>Siswa Diterima</b>
@@ -134,7 +134,7 @@
 				</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link pb-2" href="<?= base_url('') ?>">
+				<a class="nav-link pb-2" href="<?= base_url('SiswaReject') ?>">
 					<i class="fas fa-fw fa-exclamation-triangle"></i>
 					<span>
 						<b>Siswa Ditolak</b>

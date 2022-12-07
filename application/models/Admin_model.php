@@ -120,7 +120,89 @@ class Admin_model extends CI_Model
 		$this->db->order_by('user_id', 'DESC');
 		return $this->db->get('pendaftaran p')->result_array();
 	}
+	public function viewDaftar()
+	{
+		$this->db->join('user u', 'p.user_id = u.id_user');
+		$this->db->join('ta t', 'p.id_ta = t.id_ta');
+		$this->db->join('agama a', 'p.agama_id = a.id_agama');
+		$this->db->join('provinsi i', 'p.provinsi_id = i.id_provinsi');
+		$this->db->join('kecamatan n', 'p.kecamatan_id = n.id_kecamatan');
+		$this->db->join('kabupaten k', 'p.kabupaten_id = k.id_kabupaten');
+		$this->db->join('prodi o', 'p.jurusan_id = o.id_jurusan');
+		$this->db->join('tbl_penghasilan e', 'p.penghasilan_id = e.id_penghasilan');
+		$this->db->join('jurs_asal ju', 'p.jurs_id_asal = ju.id_jurs_asal_sek');
+		$this->db->where('status_ta', 1);
+		$this->db->where('sts_verfikasi', 0);
+		$this->db->order_by('id_daftar', 'DESC');
+		return $this->db->get('pendaftaran p')->result_array();
+	}
+	public function showDaftar($id)
+	{
+		$this->db->select('*');
+		$this->db->from('pendaftaran p');
+		$this->db->join('user u', 'p.user_id = u.id_user');
+		$this->db->join('ta t', 'p.id_ta = t.id_ta');
+		$this->db->join('agama a', 'p.agama_id = a.id_agama');
+		$this->db->join('provinsi i', 'p.provinsi_id = i.id_provinsi');
+		$this->db->join('kecamatan n', 'p.kecamatan_id = n.id_kecamatan');
+		$this->db->join('kabupaten k', 'p.kabupaten_id = k.id_kabupaten');
+		$this->db->join('prodi o', 'p.jurusan_id = o.id_jurusan');
+		$this->db->join('tbl_penghasilan e', 'p.penghasilan_id = e.id_penghasilan');
+		$this->db->join('jurs_asal ju', 'p.jurs_id_asal = ju.id_jurs_asal_sek');
+		$this->db->where('p.id_daftar', $id);
+		$query = $this->db->get();
+		return $query;
+	}
+	public function viewSiswa()
+	{
 
+		$this->db->join('user u', 'p.user_id = u.id_user');
+		$this->db->join('ta t', 'p.id_ta = t.id_ta');
+		$this->db->join('agama a', 'p.agama_id = a.id_agama');
+		$this->db->join('provinsi i', 'p.provinsi_id = i.id_provinsi');
+		$this->db->join('kecamatan n', 'p.kecamatan_id = n.id_kecamatan');
+		$this->db->join('kabupaten k', 'p.kabupaten_id = k.id_kabupaten');
+		$this->db->join('prodi o', 'p.jurusan_id = o.id_jurusan');
+		$this->db->join('tbl_penghasilan e', 'p.penghasilan_id = e.id_penghasilan');
+		$this->db->join('jurs_asal ju', 'p.jurs_id_asal = ju.id_jurs_asal_sek');
+		$this->db->order_by('id_daftar', 'DESC');
+		return $this->db->get('pendaftaran p')->result_array();
+	}
+
+	public function viewVerfikasi()
+	{
+
+
+		$this->db->join('user u', 'p.user_id = u.id_user');
+		$this->db->join('ta t', 'p.id_ta = t.id_ta');
+		$this->db->join('agama a', 'p.agama_id = a.id_agama');
+		$this->db->join('provinsi i', 'p.provinsi_id = i.id_provinsi');
+		$this->db->join('kecamatan n', 'p.kecamatan_id = n.id_kecamatan');
+		$this->db->join('kabupaten k', 'p.kabupaten_id = k.id_kabupaten');
+		$this->db->join('prodi o', 'p.jurusan_id = o.id_jurusan');
+		$this->db->join('tbl_penghasilan e', 'p.penghasilan_id = e.id_penghasilan');
+		$this->db->join('jurs_asal ju', 'p.jurs_id_asal = ju.id_jurs_asal_sek');
+		$this->db->where('status_ta', 1);
+		$this->db->where('sts_verfikasi', 1);
+		$this->db->order_by('id_daftar', 'DESC');
+		return $this->db->get('pendaftaran p')->result_array();
+	}
+	public function viewReject()
+	{
+		$this->db->join('user u', 'p.user_id = u.id_user');
+		$this->db->join('ta t', 'p.id_ta = t.id_ta');
+		$this->db->join('agama a', 'p.agama_id = a.id_agama');
+		$this->db->join('provinsi i', 'p.provinsi_id = i.id_provinsi');
+		$this->db->join('kecamatan n', 'p.kecamatan_id = n.id_kecamatan');
+		$this->db->join('kabupaten k', 'p.kabupaten_id = k.id_kabupaten');
+		$this->db->join('prodi o', 'p.jurusan_id = o.id_jurusan');
+		$this->db->join('tbl_penghasilan e', 'p.penghasilan_id = e.id_penghasilan');
+		$this->db->join('jurs_asal ju', 'p.jurs_id_asal = ju.id_jurs_asal_sek');
+		$this->db->where('status_ta', 1);
+		$this->db->where('sts_verfikasi', 2);
+		$this->db->order_by('id_daftar', 'DESC');
+		return $this->db->get('pendaftaran p')->result_array();
+	}
 	public function getBarangKeluar($limit = null, $id_barang = null, $range = null)
 	{
 		$this->db->select('*');

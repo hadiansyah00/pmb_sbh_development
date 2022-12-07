@@ -4,19 +4,10 @@
 		<div class="row">
 			<div class="col">
 				<h4 class="h5 align-middle m-0 font-weight-bold text-primary">
-					Form Pendaftaran Mahasiswa
+					Data Siswa PMB
 				</h4>
 			</div>
-			<div class="col-auto">
-				<a href="<?= base_url('daftar/add') ?>" class="btn btn-sm btn-primary btn-icon-split">
-					<span class="icon">
-						<i class="fa fa-plus"></i>
-					</span>
-					<span class="text">
-						Input Item
-					</span>
-				</a>
-			</div>
+
 		</div>
 	</div>
 	<div class="table-responsive">
@@ -29,8 +20,9 @@
 					<th>Nama</th>
 					<th>Tempat Lahir</th>
 					<th>Tanggal Lahir</th>
-					<th>Jurusan</th>
-					<th>Status</th>
+					<th>Prog. Study</th>
+					<th>Aksi</th>
+					<!-- <?php if (is_admin()) : ?><th>Hapus</th><?php endif; ?> -->
 				</tr>
 			</thead>
 			<tbody>
@@ -43,29 +35,16 @@
 						<tr>
 							<td><?= $no++; ?></td>
 							<td><?= $bm['id_daftar']; ?></td>
+							<!-- <td><?= $bm['status_ta']; ?></td> -->
 							<td><?php if ($bm['foto'] != null) { ?>
 									<?php echo "<img src='assets/img/avatar/$bm[foto]' width='70px' style='border-radius: 5px;' />"; ?>
 								<?php } ?></td>
 							<td><?= $bm['nama']; ?></td>
 							<td><?= $bm['tempat_lahir']; ?></td>
 							<td><?= $bm['tanggal_lahir']; ?></td>
-
 							<td><?= $bm['nama_prodi']; ?></td>
-							<td>
-								<?php if ($bm['sts_pendaftaran'] == 0) {
-									echo "<span class='btn btn-danger'>
-                                                            <i class='ace-icon fa fa-exclamation-triangle bigger-120'></i>
-                                                            Pending
-                                                     </span>";
-								} else {
-									echo "<span class='btn btn-success'>
-                                                        <i class='ace-icon fa fa-check bigger-120'></i>
-                                                                            Diterima
-                                                     </span>";
-								} ?>
-							</td>
+							<td></td>
 						</tr>
-						<?php ?>
 					<?php endforeach; ?>
 				<?php else : ?>
 					<tr>

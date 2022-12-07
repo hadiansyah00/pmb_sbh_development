@@ -4,18 +4,8 @@
 		<div class="row">
 			<div class="col">
 				<h4 class="h5 align-middle m-0 font-weight-bold text-primary">
-					Form Pendaftaran Mahasiswa
+					Data Siswa PMB
 				</h4>
-			</div>
-			<div class="col-auto">
-				<a href="<?= base_url('daftar/add') ?>" class="btn btn-sm btn-primary btn-icon-split">
-					<span class="icon">
-						<i class="fa fa-plus"></i>
-					</span>
-					<span class="text">
-						Input Item
-					</span>
-				</a>
 			</div>
 		</div>
 	</div>
@@ -29,8 +19,8 @@
 					<th>Nama</th>
 					<th>Tempat Lahir</th>
 					<th>Tanggal Lahir</th>
-					<th>Jurusan</th>
-					<th>Status</th>
+					<th>Prog. Study</th>
+					<th>View</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -49,23 +39,17 @@
 							<td><?= $bm['nama']; ?></td>
 							<td><?= $bm['tempat_lahir']; ?></td>
 							<td><?= $bm['tanggal_lahir']; ?></td>
-
 							<td><?= $bm['nama_prodi']; ?></td>
 							<td>
-								<?php if ($bm['sts_pendaftaran'] == 0) {
-									echo "<span class='btn btn-danger'>
-                                                            <i class='ace-icon fa fa-exclamation-triangle bigger-120'></i>
-                                                            Pending
-                                                     </span>";
-								} else {
-									echo "<span class='btn btn-success'>
-                                                        <i class='ace-icon fa fa-check bigger-120'></i>
-                                                                            Diterima
-                                                     </span>";
-								} ?>
+								<?php if ($bm['sts_verfikasi'] == 1) { ?>
+									<a href="<?= base_url('') . $bm['id_daftar'] ?>" class="btn btn-info btn btn-sm"><i class="fa fa-chevron-circle-right"></i></a>
+								<?php } ?>
+
 							</td>
+
+
 						</tr>
-						<?php ?>
+
 					<?php endforeach; ?>
 				<?php else : ?>
 					<tr>

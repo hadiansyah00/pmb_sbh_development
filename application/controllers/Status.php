@@ -14,8 +14,8 @@ class Status extends CI_Controller
 
 	public function index()
 	{
-		$data['title'] = "Type";
-		$data['status'] = $this->admin->get('status');
+		$data['title'] = "";
+		$data['siswa'] = $this->admin->getDaftar();
 		$this->template->load('templates/dashboard', 'status/data', $data);
 	}
 

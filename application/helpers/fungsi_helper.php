@@ -28,6 +28,7 @@ function is_admin()
 	return $status;
 }
 
+
 function is_mahasiswa()
 {
 	$ci = get_instance();
