@@ -41,10 +41,8 @@
 							<td><?= $bm['tanggal_lahir']; ?></td>
 							<td><?= $bm['nama_prodi']; ?></td>
 							<td>
-								<?php if ($bm['sts_verfikasi'] == 1) { ?>
-									<a href="<?= base_url('') . $bm['id_daftar'] ?>" class="btn btn-info btn btn-sm"><i class="fa fa-chevron-circle-right"></i></a>
-								<?php } ?>
 
+								<a href="<?= base_url('siswa/views/') . $bm['id_daftar'] ?>" class="btn btn-primary btn-circle btn-sm" title="View Data"><i class="fa fa-chevron-circle-right"></i></a>
 							</td>
 
 

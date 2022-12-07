@@ -13,20 +13,23 @@
 						<i class="fa fa-plus"></i>
 					</span>
 					<span class="text">
-						Add Data
+						Tambah Data
 					</span>
 				</a>
 			</div>
 		</div>
 	</div>
 	<div class="table-responsive">
-		<table class="table table-striped" id="dataTable">
+		<table class="table table-stripted table-responsive-md" id="dataTable">
 			<thead>
 				<tr>
 					<th>No. </th>
-					<th>Tahun</th>
+
 					<th>Tahun Akademik</th>
+					<th>Tempat</th>
+					<th>tanggal</th>
 					<th>Status</th>
+					<th>Aktivasi</th>
 					<th>Aksi</th>
 				</tr>
 			</thead>
@@ -38,7 +41,9 @@
 				?>
 						<tr>
 							<td><?= $no++; ?></td>
-							<td><?= $t['ta']; ?> (<?= $t['periode'] ?>)</td>
+							<td><?= $t['periode']; ?></td>
+							<td><?= $t['tempat_tes']; ?></td>
+							<td><?= format_indo($t['tgl_tes']); ?></td>
 							<td>
 								<?php if ($t['status_ta'] == 0) {
 									echo "<span class='btn btn-danger'>

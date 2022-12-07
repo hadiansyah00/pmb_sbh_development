@@ -13,9 +13,10 @@ class Dashboard extends CI_Controller
 
 	public function index()
 	{
-		$data['title'] = "Dashboard";
+		$data['title'] = "";
+		$data['user'] = $this->admin->get('user');
 		$data['daftar'] = $this->admin->getDaftar();
-		$data['siswa'] = $this->admin->get('pendaftaran');
+		$data['siswa'] = $this->admin->viewSiswa();
 		$data['tahun'] = $this->admin->getAktif()->row_array();
 		$this->template->load('templates/dashboard', 'dashboard', $data);
 	}

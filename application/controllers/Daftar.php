@@ -50,7 +50,7 @@ class Daftar extends CI_Controller
 	{
 		$this->_validasi();
 		if ($this->form_validation->run() == false) {
-			$data['title'] = "Form Pendaftaran";
+			$data['title'] = "";
 			// Mendapatkan dan men-generate kode transaksi barang masuk
 			$kode = 'PMB' . date('-dmy');
 			$kode_terakhir = $this->admin->getMax('pendaftaran', 'id_daftar', $kode);
@@ -65,19 +65,54 @@ class Daftar extends CI_Controller
 			$data['kecamatan'] = $this->admin->get('kecamatan');
 			$data['jurs_asal'] = $this->admin->get('jurs_asal');
 			$data['penghasilan'] = $this->admin->get('tbl_penghasilan');
+			$data['siswa'] = $this->admin->getDaftar();
 			$this->template->load('templates/dashboard', 'pendaftaran/add', $data);
 		} else {
 
 			$input = $this->input->post(null, true);
-			// $a = $this->input->post('status_siswa', 1);
+			$input['status_siswa']        = '2';
+
+			$input['tgl_insert']          = date('y-m-d');
 			$insert = $this->admin->insert('pendaftaran', $input);
 
 			if ($insert) {
 				set_pesan('data berhasil disimpan.');
-				redirect('daftar');
+				redirect('dashboard');
 			} else {
 				set_pesan_danger('Opps ada kesalahan!');
 				redirect('daftar/add');
+			}
+		}
+	}
+
+
+
+	public function edit($getId)
+	{
+		$id = encode_php_tags($getId);
+		$this->_validasi();
+
+		if ($this->form_validation->run() == false) {
+			$data['title'] = "";
+			$data['agama'] = $this->admin->get('agama');
+			$data['prodi'] = $this->admin->get('prodi');
+			$data['provinsi'] = $this->admin->get('provinsi');
+			$data['kabupaten'] = $this->admin->get('kabupaten');
+			$data['kecamatan'] = $this->admin->get('kecamatan');
+			$data['jurs_asal'] = $this->admin->get('jurs_asal');
+			$data['penghasilan'] = $this->admin->get('tbl_penghasilan');
+			$data['sw'] = $this->admin->showDaftar($id)->row_array();
+			$data['siswa'] = $this->admin->get('pendaftaran', ['id_daftar' => $id]);
+			$this->template->load('templates/dashboard', 'status/edit', $data);
+		} else {
+			$input = $this->input->post(null, true);
+			$update = $this->admin->update('pendaftaran', 'id_daftar', $id, $input);
+			if ($update) {
+				set_pesan('data berhasil disimpan');
+				redirect('status');
+			} else {
+				set_pesan('data gagal disimpan', false);
+				redirect('status/edit');
 			}
 		}
 	}
@@ -89,7 +124,7 @@ class Daftar extends CI_Controller
 		} else {
 			set_pesan('data gagal dihapus.', false);
 		}
-		redirect('daftar');
+		redirect('status');
 	}
 	public function dataKabupaten($id_provinsi)
 	{

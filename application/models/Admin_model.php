@@ -99,7 +99,7 @@ class Admin_model extends CI_Model
 	{
 		$userId = $this->session->userdata('login_session')['user'];
 		$this->db->select('*');
-
+		$this->db->join('ta t', 'p.id_ta = t.id_ta');
 		$this->db->join('user u', 'p.user_id = u.id_user');
 		$this->db->join('agama a', 'p.agama_id = a.id_agama');
 		$this->db->join('provinsi i', 'p.provinsi_id = i.id_provinsi');
@@ -115,7 +115,7 @@ class Admin_model extends CI_Model
 		if ($id_daftar != null) {
 			$this->db->where('id_daftar', $id_daftar);
 		}
-
+		$this->db->where('status_ta', 1);
 		$this->db->where('id_user', $userId);
 		$this->db->order_by('user_id', 'DESC');
 		return $this->db->get('pendaftaran p')->result_array();
@@ -132,7 +132,7 @@ class Admin_model extends CI_Model
 		$this->db->join('tbl_penghasilan e', 'p.penghasilan_id = e.id_penghasilan');
 		$this->db->join('jurs_asal ju', 'p.jurs_id_asal = ju.id_jurs_asal_sek');
 		$this->db->where('status_ta', 1);
-		$this->db->where('sts_verfikasi', 0);
+		$this->db->where('status_siswa', 2);
 		$this->db->order_by('id_daftar', 'DESC');
 		return $this->db->get('pendaftaran p')->result_array();
 	}
@@ -183,7 +183,7 @@ class Admin_model extends CI_Model
 		$this->db->join('tbl_penghasilan e', 'p.penghasilan_id = e.id_penghasilan');
 		$this->db->join('jurs_asal ju', 'p.jurs_id_asal = ju.id_jurs_asal_sek');
 		$this->db->where('status_ta', 1);
-		$this->db->where('sts_verfikasi', 1);
+		$this->db->where('status_siswa', 3);
 		$this->db->order_by('id_daftar', 'DESC');
 		return $this->db->get('pendaftaran p')->result_array();
 	}
@@ -199,7 +199,7 @@ class Admin_model extends CI_Model
 		$this->db->join('tbl_penghasilan e', 'p.penghasilan_id = e.id_penghasilan');
 		$this->db->join('jurs_asal ju', 'p.jurs_id_asal = ju.id_jurs_asal_sek');
 		$this->db->where('status_ta', 1);
-		$this->db->where('sts_verfikasi', 2);
+		$this->db->where('status_siswa', 4);
 		$this->db->order_by('id_daftar', 'DESC');
 		return $this->db->get('pendaftaran p')->result_array();
 	}

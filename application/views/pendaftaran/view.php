@@ -8,16 +8,7 @@
 							<?= $siswa['nama']; ?>
 						</h4>
 					</div>
-					<div class="col-auto">
-						<a href="<?= base_url('siswa') ?>" class="btn btn-sm btn-secondary btn-icon-split">
-							<span class="icon">
-								<i class="fa fa-arrow-left"></i>
-							</span>
-							<span class="text">
-								Back
-							</span>
-						</a>
-					</div>
+
 				</div>
 			</div>
 			<div class="card-body">

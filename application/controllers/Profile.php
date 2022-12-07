@@ -22,7 +22,7 @@ class Profile extends CI_Controller
 
 	public function index()
 	{
-		$data['title'] = "Biodata";
+		$data['title'] = "";
 		$data['user'] = $this->user;
 		$data['berkas'] = $this->admin->get('berkas');
 		$this->template->load('templates/dashboard', 'profile/user', $data);
@@ -72,7 +72,7 @@ class Profile extends CI_Controller
 				} else {
 					set_pesan_danger('perubahan tidak disimpan.');
 				}
-				redirect('profile/biodata');
+				redirect('dashboard');
 			} else {
 				if ($this->upload->do_upload('foto') == false) {
 					echo $this->upload->display_errors();
@@ -82,7 +82,7 @@ class Profile extends CI_Controller
 						$old_image = FCPATH . 'assets/img/avatar/' . userdata('foto');
 						if (!unlink($old_image)) {
 							set_pesan_danger('gagal hapus foto lama.');
-							redirect('profile/setting');
+							redirect('profile/biodata');
 						}
 					}
 
@@ -93,7 +93,7 @@ class Profile extends CI_Controller
 					} else {
 						set_pesan_danger('gagal menyimpan perubahan');
 					}
-					redirect('profile/setting');
+					redirect('profile/biodata');
 				}
 			}
 		}

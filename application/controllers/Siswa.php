@@ -32,7 +32,7 @@ class Siswa extends CI_Controller
 
 		//Set aktif tahun akademik
 		$where = array('id_daftar' => $id);
-		$data = array('sts_verfikasi' => 1);
+		$data = array('status_siswa' => 3);
 
 		$this->db->update('pendaftaran', $data, $where);
 		$this->session->set_flashdata(
@@ -62,7 +62,7 @@ class Siswa extends CI_Controller
 
 		//Set aktif tahun akademik
 		$where = array('id_daftar' => $id);
-		$data = array('sts_verfikasi' => 2);
+		$data = array('status_siswa' => 4);
 
 		$this->db->update('pendaftaran', $data, $where);
 		$this->session->set_flashdata(

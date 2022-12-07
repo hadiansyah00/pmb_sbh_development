@@ -73,7 +73,7 @@
 				</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link pb-2" href="<?= base_url('daftar') ?>">
+				<a class="nav-link pb-2" href="<?= base_url('daftar/add') ?>">
 					<i class="fas fa-fw fa-plus-circle"></i>
 					<span>
 						<b>Form Pendaftaran</b>
@@ -257,7 +257,11 @@
 			<footer class="sticky-footer bg-light">
 				<div class="container my-auto">
 					<div class="copyright text-center my-auto">
-						<span>Copyright &copy; Aplikasi PMB | STIKes Bogor Husada &bull; 2022 &bull; by <?= anchor('#', 'IT-Division'); ?></span>
+						<span>Copyright &copy; Aplikasi PMB | STIKes Bogor Husada &bull; 2022 &bull; by <?= anchor('#', 'IT-Division'); ?> &bull; <a href="#" class='btn-sm btn-success'>
+								<i class='fa fa-phone-alt'></i>
+								WA
+							</a>
+						</span>
 					</div>
 				</div>
 			</footer>

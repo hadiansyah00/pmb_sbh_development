@@ -7,30 +7,21 @@
 					Form Pendaftaran Mahasiswa
 				</h4>
 			</div>
-			<div class="col-auto">
-				<a href="<?= base_url('daftar/add') ?>" class="btn btn-sm btn-primary btn-icon-split">
-					<span class="icon">
-						<i class="fa fa-plus"></i>
-					</span>
-					<span class="text">
-						Input Item
-					</span>
-				</a>
-			</div>
+
 		</div>
 	</div>
 	<div class="table-responsive">
-		<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+		<table class="table table-striped dt-responsive nowrap" id="dataTable">
 			<thead>
 				<tr>
 					<th>No. </th>
 					<th>No Pendaftaran</th>
+					<th>Tgl daftar</th>
 					<th>Foto</th>
 					<th>Nama</th>
-					<th>Tempat Lahir</th>
-					<th>Tanggal Lahir</th>
 					<th>Jurusan</th>
 					<th>Status</th>
+					<th>Aksi</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -43,26 +34,31 @@
 						<tr>
 							<td><?= $no++; ?></td>
 							<td><?= $bm['id_daftar']; ?></td>
+							<td><?= format_indo($bm['tgl_insert']); ?></td>
 							<td><?php if ($bm['foto'] != null) { ?>
 									<?php echo "<img src='assets/img/avatar/$bm[foto]' width='70px' style='border-radius: 5px;' />"; ?>
 								<?php } ?></td>
 							<td><?= $bm['nama']; ?></td>
-							<td><?= $bm['tempat_lahir']; ?></td>
-							<td><?= $bm['tanggal_lahir']; ?></td>
 
 							<td><?= $bm['nama_prodi']; ?></td>
+
 							<td>
-								<?php if ($bm['sts_pendaftaran'] == 0) {
+								<?php if ($bm['status_siswa'] == 0) {
 									echo "<span class='btn btn-danger'>
                                                             <i class='ace-icon fa fa-exclamation-triangle bigger-120'></i>
-                                                            Pending
+                                                            Tes Akademik
                                                      </span>";
-								} else {
+								} elseif ($bm['status_siswa'] == 3) {
 									echo "<span class='btn btn-success'>
                                                         <i class='ace-icon fa fa-check bigger-120'></i>
                                                                             Diterima
                                                      </span>";
 								} ?>
+							</td>
+							<td>
+								<a href="<?= base_url('daftar/edit/') . $bm['id_daftar'] ?>" class="btn btn-info btn-circle btn-sm"><i class="fa fa-edit"></i></a>
+								<a href="<?= base_url('siswa/views/') . $bm['id_daftar'] ?>" class="btn btn-primary btn-circle btn-sm" title="View Data"><i class="fa fa-chevron-circle-right"></i></a>
+								<a onclick="return confirm('Yakin ingin hapus?')" href="<?= base_url('daftar/delete/') . $bm['id_daftar'] ?>" class="btn btn-danger btn-circle btn-sm"><i class="fa fa-trash"></i></a>
 							</td>
 						</tr>
 						<?php ?>
